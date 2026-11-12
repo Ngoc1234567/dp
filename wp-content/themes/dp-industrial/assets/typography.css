@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(fonts/roboto-400.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(fonts/roboto-500.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(fonts/roboto-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(fonts/roboto-700.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(fonts/roboto-800.ttf) format('truetype');
+}
+
+/* Match the reference site's primary Roboto family, including Vietnamese. */
+:root{--font-main:'Roboto',Arial,sans-serif}
+body{font-family:var(--font-main);font-weight:400}
+button,input,textarea,select{font-family:inherit}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-main);font-weight:700;letter-spacing:normal}
+.site-header .nav>a{font-family:var(--font-main);font-size:17px;font-weight:700;letter-spacing:normal}
+.site-header .nav{padding-top:17px;padding-bottom:17px}
+@media(max-width:800px){.site-header .nav{padding-top:0;padding-bottom:16px}.site-header .nav>a{font-size:16px}}
+.slide-copy h1,.home-heading h2{font-family:var(--font-main);font-weight:800;letter-spacing:normal}
+.dp-home .company-intro h2,.dp-home .service-intro h2,.dp-home .spares-grid h2{letter-spacing:normal}
+.btn,.service-accordion summary{font-weight:700}
