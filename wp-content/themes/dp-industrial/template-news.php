@@ -1,0 +1,6 @@
+<?php
+/* Template Name: DP — Tin tức */
+defined('ABSPATH') || exit; get_header();the_post();
+$paged=max(1,(int)get_query_var('paged'),(int)get_query_var('page'));
+$listing=new WP_Query(['post_type'=>'post','post_status'=>'publish','posts_per_page'=>9,'paged'=>$paged,'post__not_in'=>array_filter([(int)(get_page_by_path('hello-world',OBJECT,'post')->ID??0)])]); ?>
+<main id="main"><?php dp_page_heading(get_the_title(),'Tin tức & hoạt động'); ?><section class="wrap section"><div class="entry-content page-lead"><?php the_content(); ?></div><div class="grid"><?php if($listing->have_posts()){while($listing->have_posts()){$listing->the_post();dp_news_card();}}else{ ?><p class="empty">Chưa có bài viết. Tin tức và hoạt động của DP sẽ được cập nhật tại đây.</p><?php } ?></div><nav class="pagination" aria-label="Phân trang tin tức"><?php echo paginate_links(['total'=>$listing->max_num_pages,'current'=>$paged,'prev_text'=>'← Trước','next_text'=>'Tiếp →']); ?></nav><?php wp_reset_postdata(); ?></section></main><?php get_footer(); ?>

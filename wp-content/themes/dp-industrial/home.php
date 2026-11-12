@@ -1,0 +1,1 @@
+<?php defined('ABSPATH') || exit;get_header(); ?><main id="main"><?php dp_page_heading('Tin tức & hoạt động'); ?><section class="wrap section"><div class="grid"><?php if(have_posts()){while(have_posts()){the_post();dp_news_card();}}else{ ?><p class="empty">Tin tức đang được cập nhật.</p><?php } ?></div><?php the_posts_pagination(); ?></section></main><?php get_footer(); ?>

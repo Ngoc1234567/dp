@@ -1,0 +1,6 @@
+<?php
+/* Template Name: DP — Catalogue sản phẩm */
+defined('ABSPATH') || exit;get_header();the_post();
+$paged=max(1,(int)get_query_var('paged'),(int)get_query_var('page'));
+$listing=new WP_Query(['post_type'=>'dp_product','posts_per_page'=>9,'paged'=>$paged]); ?>
+<main id="main"><?php dp_page_heading(get_the_title(),'Catalogue DP'); ?><section class="wrap section"><div class="entry-content page-lead"><?php the_content(); ?></div><nav class="filters" aria-label="Nhóm sản phẩm"><?php $terms=get_terms(['taxonomy'=>'dp_category','hide_empty'=>true]);if(!is_wp_error($terms))foreach($terms as $term){ ?><a class="filter" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a><?php } ?></nav><div class="grid"><?php if($listing->have_posts()){while($listing->have_posts()){$listing->the_post();dp_card();}}else{ ?><p class="empty">Danh mục đang được cập nhật.</p><?php } ?></div><nav class="pagination" aria-label="Phân trang sản phẩm"><?php echo paginate_links(['total'=>$listing->max_num_pages,'current'=>$paged,'prev_text'=>'← Trước','next_text'=>'Tiếp →']); ?></nav><?php wp_reset_postdata(); ?></section></main><?php get_footer(); ?>

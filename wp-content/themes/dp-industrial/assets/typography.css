@@ -50,3 +50,27 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-main);font-weight:700;letter-spacing:no
 .slide-copy h1,.home-heading h2{font-family:var(--font-main);font-weight:800;letter-spacing:normal}
 .dp-home .company-intro h2,.dp-home .service-intro h2,.dp-home .spares-grid h2{letter-spacing:normal}
 .btn,.service-accordion summary{font-weight:700}
+
+/* Logo on the left, existing primary navigation on the right. */
+.site-header .header-inline{width:min(1500px,94%);min-height:110px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:40px;padding:14px 0}
+.header-inline .brand{flex-shrink:0;gap:12px}
+.header-inline .brand .dp-logo{width:85px;height:64px}
+.header-inline .brand .brand-copy strong{font-size:13px;letter-spacing:.3px}
+.header-inline .brand .brand-copy small{font-size:9px;letter-spacing:.3px}
+.site-header .header-inline .nav{width:auto;flex:1;margin:0 0 0 auto;max-width:850px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:26px;border:0;padding:0}
+.site-header .header-inline .nav>a{font-size:16px;line-height:1.4;padding:18px 0;border:0;white-space:nowrap}
+.header-inline .menu{display:none}
+@media(max-width:1100px){
+ .site-header .header-inline{min-height:84px;flex-wrap:wrap;gap:0 20px;padding:12px 0}
+ .header-inline .menu{display:block;background:white;border:1px solid var(--line);padding:9px 12px;cursor:pointer}
+ .site-header .header-inline .nav{display:none;width:100%;flex-basis:100%;max-width:none;margin:12px 0 0;flex-direction:column;align-items:stretch;gap:0}
+ .site-header .header-inline .nav.open{display:flex}
+ .site-header .header-inline .nav>a{font-size:16px;padding:14px 0;border-top:1px solid var(--line)}
+}
+@media(max-width:520px){
+ .header-inline .brand{gap:8px}
+ .header-inline .brand .dp-logo{width:56px;height:48px}
+ .header-inline .brand .brand-copy strong{font-size:10px;letter-spacing:0}
+ .header-inline .brand .brand-copy small{font-size:8px;letter-spacing:0}
+ .site-header .header-inline{gap:0 8px}
+}
