@@ -22,3 +22,5 @@ function dp_contact() { ?>
 function dp_brand() { ?><img class="dp-logo" src="<?php echo esc_url(get_theme_file_uri('assets/profile/logo.png')); ?>" alt="Logo DP"><span class="brand-copy"><strong><?php echo esc_html(get_theme_mod('dp_company','DP TECHNICAL SOLUTION')); ?></strong><small>TECHNICAL SOLUTIONS – SUSTAINABLE VALUE</small></span><?php }
 
 require_once get_template_directory().'/inc/pages.php';
+
+require_once get_template_directory().'/inc/acf-home.php';
