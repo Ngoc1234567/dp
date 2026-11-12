@@ -55,7 +55,5 @@ $used_anchors[$anchor] = true;
 <?php else: dp_home_image($section_id,'dp_hs_image','page-cover'); endif; ?>
 <div class="home-more"><?php dp_home_link($section_id,'dp_hs_link','btn outline'); ?></div></div>
 <?php endif; ?>
-<?php if(dp_hv($section_id,'dp_hs_contact')): $contact_anchor=$contact_rendered?'lien-he-'.$section_id:'lien-he';$contact_rendered=true; ?>
-<div class="wrap dp-home-contact"><div class="contact-panel" id="<?php echo esc_attr($contact_anchor); ?>"><h3><?php echo esc_html(dp_hv($home_id,'dp_home_contact_heading')); ?></h3><?php $phone=dp_hv($home_id,'dp_home_phone');$email=dp_hv($home_id,'dp_home_email');if($phone){ ?><p><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',$phone)); ?>"><?php echo esc_html($phone); ?></a></p><?php } if($email){ ?><p><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p><?php } ?><p><?php echo nl2br(esc_html(dp_hv($home_id,'dp_home_address'))); ?></p></div></div>
-<?php endif; ?>
+
 </section>

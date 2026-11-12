@@ -5,7 +5,6 @@ get_header();
 $home_id = is_page() ? get_queried_object_id() : (int) get_option('page_on_front');
 $sections = dp_home_ids($home_id, 'dp_home_sections', 'dp_home_section');
 $used_anchors = [];
-$contact_rendered = false;
 ?>
 <main id="main" class="dp-home"><h1 class="screen-reader-text"><?php echo esc_html(get_the_title($home_id)); ?></h1>
 <?php foreach ($sections as $section_id) require get_template_directory().'/inc/home-section.php'; ?>

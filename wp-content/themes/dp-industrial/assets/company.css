@@ -7,3 +7,20 @@
 .strip{background:#fafafa}.service{background:#f6f6f7}.service-list article{border-color:#ddd}.card-image{background:white;height:255px;padding:20px}.card-image img{object-fit:contain}.card-body{padding:24px}.card-body h3{font-size:23px}.card-body .eyebrow{font-size:10px;letter-spacing:1px;margin-bottom:13px}.tag{background:#fff;color:#b91621;top:8px;left:12px}.card-body p{min-height:63px}.card-bottom{color:#b91621}.company-intro{display:grid;grid-template-columns:1fr 1fr;gap:70px}.company-intro p{color:var(--muted);margin-top:22px}.values{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.values span{padding:8px 14px;background:#f8e9eb;color:#a5151e;font-size:12px}.intro-image{width:100%;height:360px;object-fit:contain;background:#f6f6f7;padding:20px}.spares-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.spares-grid img{width:100%;height:320px;object-fit:contain}.spares-grid p{margin:24px 0;color:var(--muted)}.cta{background:#292b31}.cta p{color:#dedee1}.detail-photo{background:#fafafa}.detail-photo img{object-fit:contain;padding:25px}.model{background:#f9e8ea;color:#a3131e}.notice{background:#faf0f1}.specs tr:nth-child(odd){background:#f7f7f8}.footer{border-top:1px solid var(--line)}.footer .brand{align-items:start}.footer-row>div{max-width:430px}.footer-row p{margin-top:10px}.contact-panel a{color:#b91621}.footer-legal{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;font-size:11px}.search input{background:#fff} :focus-visible{outline-color:var(--accent)}
 @media(max-width:800px){.header-contact{display:none}.brand .dp-logo{width:70px;height:52px}.brand .brand-copy strong{font-size:12px;letter-spacing:0}.brand .brand-copy small{font-size:9px;letter-spacing:0}.site-header .nav{padding:0 0 20px;border:0}.company-intro,.spares-grid{grid-template-columns:1fr;gap:30px}.hero{min-height:520px}.hero-content{padding:60px 0 80px}.intro-image{height:280px}}
 @media(max-width:520px){.brand{gap:9px}.brand .dp-logo{width:58px}.brand .brand-copy strong{font-size:11px}.hero h1{font-size:40px}.hero-note{font-size:9px}.card-body p{min-height:0}}
+
+/* Rounded buttons with a consistent red hover and keyboard focus state. */
+.btn,.filter,.menu,.entry-content input[type=submit],.slider-controls>button{
+ border-radius:12px;
+ transition:background-color 300ms ease,color 300ms ease,border-color 300ms ease;
+}
+.btn.outline:is(:hover,:focus-visible),
+.filter:not(.active):is(:hover,:focus-visible),
+.site-header .header-inline .menu:is(:hover,:focus-visible),
+.slider-controls>button:is(:hover,:focus-visible){
+ background:var(--accent);
+ color:#fff;
+ border-color:var(--accent);
+}
+@media(prefers-reduced-motion:reduce){
+ .btn,.filter,.menu,.entry-content input[type=submit],.slider-controls>button{transition:none}
+}

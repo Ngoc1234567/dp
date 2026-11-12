@@ -9,6 +9,41 @@ Text Domain: dp-industrial
 @media(max-width:800px){.header{min-height:76px;flex-wrap:wrap;padding:14px 0}.menu{display:block;background:transparent;border:1px solid var(--line);padding:8px 12px}.nav{display:none;width:100%;flex-direction:column;align-items:stretch;padding:15px 0;gap:18px}.nav.open{display:flex}.hero{min-height:580px}.hero-content{padding:60px 0 90px}.hero:after{background:linear-gradient(90deg,rgba(8,28,24,.91),rgba(8,28,24,.45))}.grid{grid-template-columns:1fr 1fr}.strip .wrap{flex-wrap:wrap}.strip .wrap>div{width:45%}.section{padding:55px 0}.section-head{align-items:start;flex-direction:column}.service-grid,.detail{grid-template-columns:1fr;gap:30px}.cta{padding:30px;align-items:start;flex-direction:column}.cta h2{font-size:30px}.footer-row{flex-direction:column}.detail-copy h1{font-size:38px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:44px}.brand span{font-size:12px}.card-image{height:260px}.detail-photo img{height:300px}.strip strong{font-size:14px}.strip .wrap{font-size:11px}.actions .btn{width:100%}}
 
+/* Shared rounded surfaces for catalogue cards and content panels. */
+:root{
+ --radius-sm:10px;
+ --radius-card:18px;
+ --radius-panel:24px;
+ --shadow-card:0 4px 18px rgba(36,39,45,.045);
+ --shadow-card-hover:0 12px 28px rgba(36,39,45,.09);
+}
+.card{
+ border-color:#e9e9ed;
+ border-radius:var(--radius-card);
+ box-shadow:var(--shadow-card);
+ transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.card-image,.news-card>a>img{border-radius:var(--radius-card) var(--radius-card) 0 0}
+.card-image{overflow:hidden}
+.card-image img{transition:transform 300ms ease;transform-origin:center}
+.card:hover .card-image img{transform:scale(1.05)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card-hover);border-color:rgba(207,24,34,.3)}
+.btn,.menu,.search input,.entry-content input:not([type=checkbox]):not([type=radio]),.entry-content textarea,.entry-content select{border-radius:var(--radius-sm)}
+.filter,.tag,.model,.values span{border-radius:999px}
+.sidebar-box,.contact-panel,.notice,.empty,.detail-photo{border-radius:var(--radius-card)}
+.sidebar-box,.contact-panel{box-shadow:var(--shadow-card);transition:border-color 300ms ease}
+.sidebar-box:hover,.contact-panel:hover{border-color:rgba(207,24,34,.3)}
+.intro-image,.spares-grid img,.page-cover{border-radius:var(--radius-card)}
+.cta{border-radius:var(--radius-panel)}
+.entry-content blockquote{border-radius:0 var(--radius-card) var(--radius-card) 0}
+@media(prefers-reduced-motion:reduce){
+ .card{transition:none}
+ .sidebar-box,.contact-panel{transition:none}
+ .card:hover{transform:none}
+ .card-image img{transition:none}
+ .card:hover .card-image img{transform:none}
+}
+
 /* Main navigation matches the five-item reference. */
 .site-header{background:#fff}
 .site-header .header{min-height:78px}
