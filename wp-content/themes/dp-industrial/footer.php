@@ -1,1 +1,42 @@
-<footer class="wrap footer"><div class="footer-row"><div><a class="brand" href="<?php echo esc_url(home_url('/')); ?>"><?php dp_brand(); ?></a><p>CÔNG TY TNHH GIẢI PHÁP KỸ THUẬT DP<br>DP TECHNICAL SOLUTION CO., LTD.<br>Mã số doanh nghiệp: 3502554141</p></div><div><strong>LIÊN HỆ VỚI DP</strong><p><?php echo esc_html(get_theme_mod('dp_address')); ?></p><p>Điện thoại: <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',get_theme_mod('dp_phone'))); ?>"><?php echo esc_html(get_theme_mod('dp_phone')); ?></a><br>Email: <a href="mailto:<?php echo esc_attr(get_theme_mod('dp_email')); ?>"><?php echo esc_html(get_theme_mod('dp_email')); ?></a></p></div></div><nav class="footer-pages" aria-label="Trang thông tin"><?php foreach(["gioi-thieu"=>"Giới thiệu","tin-tuc"=>"Tin tức","lien-he"=>"Liên hệ"] as $slug=>$label){ ?><a href="<?php echo esc_url(dp_page_url($slug)); ?>"><?php echo esc_html($label); ?></a><?php } ?></nav><div class="footer-legal">© <?php echo esc_html(wp_date('Y')); ?> DP Technical Solution. Chất lượng – Uy tín – Chuyên nghiệp.</div></footer><?php wp_footer(); ?></body></html>
+<?php
+/** Site-wide company footer. */
+defined('ABSPATH') || exit;
+$footer_phone = get_theme_mod('dp_phone');
+$footer_email = get_theme_mod('dp_email');
+$footer_address = get_theme_mod('dp_address');
+$footer_terms = get_terms(['taxonomy' => 'dp_category', 'hide_empty' => true, 'number' => 5]);
+?>
+<footer class="dp-footer">
+    <div class="wrap">
+        <div class="dp-footer-grid">
+            <div class="dp-footer-company">
+                <a class="dp-footer-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="DP Technical Solution — Trang chủ"><img src="<?php echo esc_url((wp_get_attachment_image_url((int) dp_hv(dp_settings_id(), 'dp_shared_logo'), 'full') ?: get_theme_file_uri('assets/profile/logo.png'))); ?>" alt="DP Technical Solution" loading="lazy"></a>
+                <p class="dp-footer-name"><?php echo esc_html(dp_content('dp_copy_footer_1', dp_settings_id())); ?><br><?php echo esc_html(dp_content('dp_copy_footer_2', dp_settings_id())); ?></p>
+                <p><?php echo esc_html(dp_content('dp_copy_footer_3', dp_settings_id())); ?></p>
+            </div>
+            <nav class="dp-footer-column" aria-label="Khám phá DP">
+                <h3><?php echo esc_html(dp_content('dp_copy_footer_4', dp_settings_id())); ?></h3>
+                <?php foreach (['gioi-thieu'=>'Giới thiệu', 'san-pham'=>'Sản phẩm', 'phu-tung'=>'Phụ tùng', 'dich-vu'=>'Dịch vụ', 'giai-phap'=>'Giải pháp', 'tin-tuc'=>'Tin tức'] as $slug=>$label): ?>
+                <a href="<?php echo esc_url(dp_page_url($slug)); ?>"><?php echo esc_html($label); ?></a>
+                <?php endforeach; ?>
+            </nav>
+            <nav class="dp-footer-column" aria-label="Danh mục sản phẩm">
+                <h3><?php echo esc_html(dp_content('dp_copy_footer_5', dp_settings_id())); ?></h3>
+                <?php if (!is_wp_error($footer_terms)) foreach ($footer_terms as $term): $term_url = get_term_link($term); if (is_wp_error($term_url)) continue; ?>
+                <a href="<?php echo esc_url($term_url); ?>"><?php echo esc_html($term->name); ?></a>
+                <?php endforeach; ?>
+                <a class="dp-footer-all" href="<?php echo esc_url(get_post_type_archive_link('dp_product')); ?>"><?php echo esc_html(dp_content('dp_copy_footer_6', dp_settings_id())); ?><span aria-hidden="true">↗</span></a>
+            </nav>
+            <div class="dp-footer-column dp-footer-contact">
+                <h3><?php echo esc_html(dp_content('dp_copy_footer_7', dp_settings_id())); ?></h3>
+                <?php if ($footer_phone): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_8', dp_settings_id())); ?></span><a class="dp-footer-phone" href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $footer_phone)); ?>"><?php echo esc_html($footer_phone); ?></a></div><?php endif; ?>
+                <?php if ($footer_email): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_9', dp_settings_id())); ?></span><a href="mailto:<?php echo esc_attr($footer_email); ?>"><?php echo esc_html($footer_email); ?></a></div><?php endif; ?>
+                <?php if ($footer_address): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_10', dp_settings_id())); ?></span><address><?php echo nl2br(esc_html($footer_address)); ?></address></div><?php endif; ?>
+                <a class="dp-footer-all" href="<?php echo esc_url(dp_page_url('lien-he')); ?>"><?php echo esc_html(dp_content('dp_copy_footer_11', dp_settings_id())); ?><span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="dp-footer-bottom"><p>© <?php echo esc_html(wp_date('Y')); ?> DP Technical Solution.</p><p><?php echo esc_html(dp_content('dp_copy_footer_12', dp_settings_id())); ?></p></div>
+    </div>
+</footer>
+<?php wp_footer(); ?>
+</body></html>

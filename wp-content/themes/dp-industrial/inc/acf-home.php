@@ -42,6 +42,7 @@ add_action('acf/init', function () {
             $f('dp_home_contact_heading', 'Tiêu đề phần thông tin liên hệ'),
             $f('dp_home_dock', 'Hiện nút liên hệ nổi', 'true_false', ['ui' => 1, 'default_value' => 1]),
             $f('dp_home_phone_label', 'Nhãn nút điện thoại', 'text', ['default_value' => 'Hotline']),
+            $f('dp_home_zalo_url', 'Liên kết Zalo', 'url', ['instructions' => 'Nhập liên kết https://zalo.me/số-điện-thoại. Để trống sẽ dùng số hotline.']),
             $f('dp_home_contact_link', 'Nút liên hệ nổi', 'link', ['return_format' => 'array']),
         ],
         'location' => [[['param' => 'page_type', 'operator' => '==', 'value' => 'front_page']], [['param' => 'page_template', 'operator' => '==', 'value' => 'template-home.php']]],
@@ -110,3 +111,16 @@ add_action('admin_notices', function () {
 });
 
 require_once __DIR__.'/home-editor.php';
+
+/** Reuse the homepage contact CTA in product listings. */
+function dp_product_contact_cta() {
+    $home_id = (int) get_option('page_on_front');
+    $used_anchors = [];
+    foreach (dp_home_ids($home_id, 'dp_home_sections', 'dp_home_section') as $section_id) {
+        if (dp_hv($section_id, 'dp_hs_layout') !== 'cta') continue;
+        echo '<div class="dp-home dp-product-contact">';
+        require get_template_directory() . '/inc/home-section.php';
+        echo '</div>';
+        break;
+    }
+}

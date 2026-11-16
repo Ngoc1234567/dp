@@ -19,8 +19,10 @@ function dp_contact() { ?>
 <section class="contact-panel" id="lien-he"><span class="eyebrow">Kết nối với chúng tôi</span><h3>Trao đổi yêu cầu với DP</h3><?php $phone=get_theme_mod('dp_phone'); $email=get_theme_mod('dp_email'); if ($phone) { ?><p>Hotline: <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',$phone)); ?>"><?php echo esc_html($phone); ?></a></p><?php } if ($email) { ?><p>Email: <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p><?php } if (!$phone && !$email) { ?><p>Thông tin liên hệ đang chờ cập nhật. Chức năng gửi yêu cầu sẽ được hoàn thiện sau khi duyệt bản đầu.</p><?php } ?><p><?php echo esc_html(get_theme_mod('dp_address')); ?></p></section>
 <?php }
 
-function dp_brand() { ?><img class="dp-logo" src="<?php echo esc_url(get_theme_file_uri('assets/profile/logo.png')); ?>" alt="Logo DP"><span class="brand-copy"><strong><?php echo esc_html(get_theme_mod('dp_company','DP TECHNICAL SOLUTION')); ?></strong><small>TECHNICAL SOLUTIONS – SUSTAINABLE VALUE</small></span><?php }
+function dp_brand() { ?><img class="dp-logo" src="<?php echo esc_url((wp_get_attachment_image_url((int) dp_hv(dp_settings_id(), 'dp_shared_logo'), 'full') ?: get_theme_file_uri('assets/profile/logo.png'))); ?>" alt="Logo DP"><span class="brand-copy"><strong><?php echo esc_html(get_theme_mod('dp_company','DP TECHNICAL SOLUTION')); ?></strong><small><?php echo esc_html(dp_hv(dp_settings_id(), 'dp_shared_tagline', 'TECHNICAL SOLUTIONS – SUSTAINABLE VALUE')); ?></small></span><?php }
 
 require_once get_template_directory().'/inc/pages.php';
 
 require_once get_template_directory().'/inc/acf-home.php';
+
+require_once get_template_directory().'/inc/acf-content.php';

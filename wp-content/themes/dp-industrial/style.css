@@ -57,3 +57,26 @@ Text Domain: dp-industrial
  .site-header .nav.open{display:flex}
  .site-header .nav>a{font-size:18px;padding:15px 0;border-top:1px solid var(--line)}
 }
+
+/* Home and catalogue motion: progressive enhancement with reduced-motion support. */
+@media(prefers-reduced-motion:no-preference){
+ .dp-motion .dp-reveal{opacity:0;translate:0 24px;transition:opacity 650ms ease var(--reveal-delay,0ms),translate 650ms cubic-bezier(.2,.65,.3,1) var(--reveal-delay,0ms)}
+ .dp-motion .dp-revealed{opacity:1;translate:0 0}
+ .dp-motion .home-slide:not([hidden]) .slide-copy>*{animation:dp-slide-copy 700ms cubic-bezier(.2,.65,.3,1) both}
+ .dp-motion .home-slide:not([hidden]) .slide-copy h2{animation-delay:80ms}
+ .dp-motion .home-slide:not([hidden]) .slide-copy p{animation-delay:160ms}
+ .dp-motion .home-slide:not([hidden]) .slide-copy .btn{animation-delay:240ms}
+ .dp-motion .home-slide:not([hidden])>img{animation:dp-banner-in 1100ms ease-out both}
+ .dp-motion .btn,.dp-motion .filter{transition:transform 200ms ease,box-shadow 200ms ease,background-color 200ms ease}
+ .dp-motion .btn:hover,.dp-motion .filter:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,42,41,.14)}
+ .dp-motion .card:focus-within{transform:translateY(-3px);box-shadow:var(--shadow-card-hover)}
+ .dp-motion .card:focus-within .card-image img{transform:scale(1.05)}
+ @keyframes dp-slide-copy{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+ @keyframes dp-banner-in{from{opacity:.6;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}
+}
+@media(prefers-reduced-motion:reduce){
+ .dp-motion .dp-reveal{opacity:1;translate:none;transition:none}
+ .dp-motion .category-tile>img,.dp-motion .category-caption{transition:none}
+ .dp-motion .category-tile:hover>img{transform:none}
+ html{scroll-behavior:auto}
+}

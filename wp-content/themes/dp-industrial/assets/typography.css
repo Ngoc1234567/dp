@@ -68,3 +68,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-main);font-weight:700;letter-spacing:no
  .header-inline .brand .brand-copy small{font-size:8px;letter-spacing:0}
  .site-header .header-inline{gap:0 8px}
 }
+.site-header .header-inline .nav>li{list-style:none;margin:0;padding:0}
+.site-header .header-inline .nav>li>a{display:block;font-size:16px;font-weight:700;padding:18px 0;white-space:nowrap}
+.site-header .header-inline .nav>li>a:hover{color:var(--accent)}
+@media(max-width:800px){.site-header .header-inline .nav>li>a{padding:14px 0;border-top:1px solid var(--line)}}

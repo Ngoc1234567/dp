@@ -20,3 +20,131 @@
 @media(max-width:800px){.utility-inner>span{display:none}.utility-inner{justify-content:flex-end}.utility-inner nav{gap:18px;font-size:11px}.site-header .nav{padding:0 0 20px}.home-slide{min-height:520px}.slide-copy{padding:55px 0 100px;max-width:95%}.slide-copy h1{font-size:38px}.slide-copy p{font-size:14px}.home-slide:after{background:linear-gradient(90deg,rgba(18,20,25,.94),rgba(18,20,25,.66))}.category-caption{padding:18px}.category-caption h3{font-size:17px}.category-caption p{display:none}.category-tile{min-height:290px}.brand-names{justify-content:center;gap:22px 35px}.dp-home .intro-image{height:300px}.contact-dock a{width:48px;min-height:52px;font-size:20px}.contact-dock{bottom:20px}.dp-home .section{padding:50px 0}}
 @media(max-width:520px){.utility-inner nav>a:last-child{display:none}.category-tiles{grid-template-columns:1fr;gap:18px}.home-categories{padding:45px 0}.slide-copy h1{font-size:32px}.slide-copy{padding-top:45px}.slide-copy .btn{font-size:13px}.home-slide{min-height:550px}.slider-count{font-size:10px}.service-accordion summary{font-size:18px}.brand-names span{font-size:19px}.home-heading p{font-size:13px}.contact-dock{bottom:12px}.contact-dock a{width:44px}.category-tile{min-height:310px}}
 @media(prefers-reduced-motion:reduce){.category-tile>img,.category-caption{transition:none}html{scroll-behavior:auto}}
+
+/* Floating contact buttons match the Alpha Edu reference. */
+.dp-floating-contact {
+    position: fixed;
+    right: 18px;
+    bottom: 28px;
+    z-index: 120;
+    display: grid;
+    gap: 14px;
+}
+
+.dp-floating-button {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    isolation: isolate;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.dp-floating-button::before,
+.dp-floating-button::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0.16;
+    animation: dp-floating-contact-pulse 1800ms ease-out infinite;
+}
+
+.dp-floating-button::after {
+    inset: -10px;
+    opacity: 0.08;
+    animation-delay: 450ms;
+}
+
+.dp-floating-button:hover,
+.dp-floating-button:focus-visible {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.dp-floating-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.16);
+    animation: dp-floating-contact-swing 1350ms ease-in-out infinite;
+    transform-origin: 50% 80%;
+}
+
+.dp-floating-button:nth-child(2) .dp-floating-icon {
+    animation-delay: 150ms;
+}
+
+.dp-floating-button:nth-child(3) .dp-floating-icon {
+    animation-delay: 300ms;
+}
+
+.dp-floating-phone {
+    background: #b91420;
+    color: #b91420;
+}
+
+.dp-floating-phone .dp-floating-icon {
+    color: #fff;
+}
+
+.dp-floating-contact svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+@keyframes dp-floating-contact-swing {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    18% {
+        transform: rotate(-10deg) translateY(-1px);
+    }
+
+    36% {
+        transform: rotate(8deg) translateY(1px);
+    }
+
+    54% {
+        transform: rotate(-6deg) translateY(0);
+    }
+
+    72% {
+        transform: rotate(4deg) translateY(-1px);
+    }
+}
+
+@keyframes dp-floating-contact-pulse {
+    0% {
+        transform: scale(0.82);
+        opacity: 0.24;
+    }
+
+    80%, 100% {
+        transform: scale(1.28);
+        opacity: 0;
+    }
+}
+
+
+.dp-floating-message{background:#1877f2;color:#1877f2}
+.dp-floating-zalo{background:#1aa7ec;color:#1aa7ec}
+.dp-floating-zalo .dp-floating-icon{color:#fff}
+.dp-floating-zalo-text{font:900 13px/1 Arial,sans-serif;letter-spacing:0}
+.dp-floating-message .dp-floating-icon{color:#fff}
+@media(max-width:860px){.dp-floating-contact{right:12px;bottom:22px;gap:11px}.dp-floating-button{width:48px;height:48px}.dp-floating-icon{width:37px;height:37px}}
+@media(max-width:520px){.dp-floating-contact{right:10px;bottom:18px;gap:10px}.dp-floating-button{width:44px;height:44px}.dp-floating-icon{width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){.dp-floating-button,.dp-floating-icon,.dp-floating-button::before,.dp-floating-button::after{animation:none;transition:none}.dp-floating-button:hover,.dp-floating-button:focus-visible{transform:none}}
+
+
+main.wrap .dp-product-contact .wrap{width:100%}
