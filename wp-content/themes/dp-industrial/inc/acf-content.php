@@ -87,9 +87,19 @@ function dp_equipment_sections(){
 }
 
 /** The editable Products page supplies content for the /thiet-bi/ archive. */
-function dp_catalogue_page_id(){ return (int)get_option('dp_catalogue_settings_id'); }
+function dp_catalogue_page_id(){
+    $id=(int)get_option('dp_catalogue_settings_id');
+    if($id && get_post_type($id)==='dp_catalogue_config' && get_post_status($id)!=='trash')return $id;
+    $existing=get_posts(['post_type'=>'dp_catalogue_config','post_status'=>['publish','draft','private'],'posts_per_page'=>1,'fields'=>'ids']);
+    if($existing){update_option('dp_catalogue_settings_id',(int)$existing[0]);return (int)$existing[0];}
+    return 0;
+}
 add_action('init',function(){
     register_post_type('dp_catalogue_config',['labels'=>['name'=>'Nội dung trang thiết bị','singular_name'=>'Nội dung trang thiết bị'],'public'=>false,'show_ui'=>true,'show_in_menu'=>false,'supports'=>['title'],'capability_type'=>'page','map_meta_cap'=>true,'capabilities'=>['create_posts'=>'do_not_allow']]);
+    if(is_admin() && current_user_can('manage_options') && !dp_catalogue_page_id()){
+        $id=wp_insert_post(['post_type'=>'dp_catalogue_config','post_status'=>'publish','post_title'=>'Nội dung trang thiết bị'],true);
+        if(!is_wp_error($id))update_option('dp_catalogue_settings_id',$id);
+    }
 });
 add_action('admin_menu',function(){
     $id=dp_catalogue_page_id();
