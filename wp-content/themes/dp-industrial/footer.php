@@ -10,17 +10,17 @@ $footer_terms = get_terms(['taxonomy' => 'dp_category', 'hide_empty' => true, 'n
     <div class="wrap">
         <div class="dp-footer-grid">
             <div class="dp-footer-company">
-                <a class="dp-footer-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="DP Technical Solution — Trang chủ"><img src="<?php echo esc_url((wp_get_attachment_image_url((int) dp_hv(dp_settings_id(), 'dp_shared_logo'), 'full') ?: get_theme_file_uri('assets/profile/logo.png'))); ?>" alt="DP Technical Solution" loading="lazy"></a>
+                <a class="dp-footer-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="DP Technical Solution — Home"><img src="<?php echo esc_url((wp_get_attachment_image_url((int) dp_hv(dp_settings_id(), 'dp_shared_logo'), 'full') ?: get_theme_file_uri('assets/profile/logo.png'))); ?>" alt="DP Technical Solution" loading="lazy"></a>
                 <p class="dp-footer-name"><?php echo esc_html(dp_content('dp_copy_footer_1', dp_settings_id())); ?><br><?php echo esc_html(dp_content('dp_copy_footer_2', dp_settings_id())); ?></p>
                 <p><?php echo esc_html(dp_content('dp_copy_footer_3', dp_settings_id())); ?></p>
             </div>
-            <nav class="dp-footer-column" aria-label="Khám phá DP">
+            <nav class="dp-footer-column" aria-label="Explore DP">
                 <h3><?php echo esc_html(dp_content('dp_copy_footer_4', dp_settings_id())); ?></h3>
-                <?php foreach (['gioi-thieu'=>'Giới thiệu', 'san-pham'=>'Sản phẩm', 'phu-tung'=>'Phụ tùng', 'dich-vu'=>'Dịch vụ', 'giai-phap'=>'Giải pháp', 'tin-tuc'=>'Tin tức'] as $slug=>$label): ?>
+                <?php foreach (['gioi-thieu'=>'About us', 'san-pham'=>'Products', 'phu-tung'=>'Spare parts', 'dich-vu'=>'Services', 'giai-phap'=>'Solutions', 'tin-tuc'=>'News'] as $slug=>$label): ?>
                 <a href="<?php echo esc_url(dp_page_url($slug)); ?>"><?php echo esc_html($label); ?></a>
                 <?php endforeach; ?>
             </nav>
-            <nav class="dp-footer-column" aria-label="Danh mục sản phẩm">
+            <nav class="dp-footer-column" aria-label="Product catalogue">
                 <h3><?php echo esc_html(dp_content('dp_copy_footer_5', dp_settings_id())); ?></h3>
                 <?php if (!is_wp_error($footer_terms)) foreach ($footer_terms as $term): $term_url = get_term_link($term); if (is_wp_error($term_url)) continue; ?>
                 <a href="<?php echo esc_url($term_url); ?>"><?php echo esc_html($term->name); ?></a>

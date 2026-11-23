@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: DP — Trang chủ
+ * Template Name: DP — Home
  * Template Post Type: page
  */
 defined('ABSPATH') || exit;

@@ -2,31 +2,31 @@
   "template-contact.php": [
     [
       "dp_copy_template_contact_1",
-      "Trang chủ"
+      "Home"
     ],
     [
       "dp_copy_template_contact_2",
-      "/ Liên hệ"
+      "/ Contact"
     ],
     [
       "dp_copy_template_contact_3",
-      "LIÊN HỆ VỚI DP"
+      "CONTACT DP"
     ],
     [
       "dp_copy_template_contact_4",
-      "Kết nối với đội ngũ DP để được tư vấn thiết bị, vật tư công nghiệp và giải pháp kỹ thuật phù hợp. Chúng tôi sẵn sàng lắng nghe và hỗ trợ yêu cầu của bạn."
+      "Contact the DP team for advice on equipment, industrial supplies and technical solutions. We are ready to listen and help with your requirements."
     ],
     [
       "dp_copy_template_contact_5",
-      "Họ và tên"
+      "Full name"
     ],
     [
       "dp_copy_template_contact_6",
-      "Công ty"
+      "Company"
     ],
     [
       "dp_copy_template_contact_7",
-      "Số điện thoại"
+      "Phone number"
     ],
     [
       "dp_copy_template_contact_8",
@@ -34,7 +34,7 @@
     ],
     [
       "dp_copy_template_contact_9",
-      "Nội dung"
+      "Message"
     ],
     [
       "dp_copy_template_contact_10",
@@ -42,15 +42,15 @@
     ],
     [
       "dp_copy_template_contact_11",
-      "Thông tin của bạn được sử dụng để phản hồi yêu cầu tư vấn."
+      "Your information will be used to respond to your enquiry."
     ],
     [
       "dp_copy_template_contact_12",
-      "GỬI YÊU CẦU"
+      "SEND ENQUIRY"
     ],
     [
       "dp_copy_template_contact_13",
-      "THÔNG TIN TRỤ SỞ CHÍNH"
+      "HEAD OFFICE"
     ],
     [
       "dp_copy_template_contact_14",
@@ -58,89 +58,89 @@
     ],
     [
       "dp_copy_template_contact_15",
-      "Trụ sở chính"
+      "Head office"
     ],
     [
       "dp_copy_template_contact_16",
-      "Xem đường đi"
+      "Get directions"
     ],
     [
       "dp_copy_template_contact_17",
-      "PHỤ TÙNG & VẬT TƯ CÔNG NGHIỆP"
+      "SPARE PARTS & INDUSTRIAL SUPPLIES"
     ],
     [
       "dp_copy_template_contact_18",
-      "Phụ tùng phù hợp."
+      "The right parts."
     ],
     [
       "dp_copy_template_contact_19",
-      "Vận hành bền bỉ."
+      "Reliable performance."
     ],
     [
       "dp_copy_template_contact_20",
-      "DP cung cấp phụ tùng cho bơm, động cơ, máy phát điện và máy nén khí, phục vụ nhu cầu bảo dưỡng và thay thế trong vận hành."
+      "DP supplies spare parts for pumps, engines, generators and air compressors to support maintenance and replacement needs."
     ],
     [
       "dp_copy_template_contact_21",
-      "Gửi model, thông số kỹ thuật hoặc ảnh nhãn máy để được hỗ trợ lựa chọn phụ tùng phù hợp với thiết bị của bạn."
+      "Send the model, specifications or a nameplate photo for help choosing the right parts for your equipment."
     ],
     [
       "dp_copy_template_contact_22",
-      "XEM PHỤ TÙNG"
+      "VIEW SPARE PARTS"
     ],
     [
       "dp_placeholder_template_contact_php_22",
-      "Họ và tên"
+      "Full name"
     ],
     [
       "dp_placeholder_template_contact_php_23",
-      "Tên công ty"
+      "Company name"
     ],
     [
       "dp_placeholder_template_contact_php_24",
-      "VD: 0901234567"
+      "e.g. 0901234567"
     ],
     [
       "dp_placeholder_template_contact_php_25",
-      "email@congty.com"
+      "email@company.com"
     ],
     [
       "dp_placeholder_template_contact_php_26",
-      "Thiết bị, model hoặc yêu cầu bạn cần tư vấn…"
+      "Equipment, model or requirements you need advice on…"
     ]
   ],
   "footer.php": [
     [
       "dp_copy_footer_1",
-      "CÔNG TY TNHH"
+      "DP TECHNICAL SOLUTION"
     ],
     [
       "dp_copy_footer_2",
-      "GIẢI PHÁP KỸ THUẬT DP"
+      "COMPANY LIMITED"
     ],
     [
       "dp_copy_footer_3",
-      "Thiết bị, vật tư công nghiệp và dịch vụ kỹ thuật cho nhu cầu vận hành của doanh nghiệp."
+      "Industrial equipment, supplies and technical services for your business operations."
     ],
     [
       "dp_copy_footer_4",
-      "Khám phá DP"
+      "Explore DP"
     ],
     [
       "dp_copy_footer_5",
-      "Thiết bị & vật tư"
+      "Equipment & supplies"
     ],
     [
       "dp_copy_footer_6",
-      "Tất cả sản phẩm"
+      "All products"
     ],
     [
       "dp_copy_footer_7",
-      "Kết nối với chúng tôi"
+      "Connect with us"
     ],
     [
       "dp_copy_footer_8",
-      "HOTLINE TƯ VẤN"
+      "SALES HOTLINE"
     ],
     [
       "dp_copy_footer_9",
@@ -148,25 +148,25 @@
     ],
     [
       "dp_copy_footer_10",
-      "ĐỊA CHỈ"
+      "ADDRESS"
     ],
     [
       "dp_copy_footer_11",
-      "Thông tin liên hệ"
+      "Contact information"
     ],
     [
       "dp_copy_footer_12",
-      "Chất lượng · Uy tín · Chuyên nghiệp"
+      "Quality · Reliability · Professionalism"
     ]
   ],
   "archive-dp_product.php": [
     [
       "dp_copy_archive_dp_product_1",
-      "Trang chủ"
+      "Home"
     ],
     [
       "dp_copy_archive_dp_product_2",
-      "/ Danh mục thiết bị"
+      "/ Equipment catalogue"
     ],
     [
       "dp_copy_archive_dp_product_3",
@@ -174,81 +174,81 @@
     ],
     [
       "dp_copy_archive_dp_product_4",
-      "Thiết bị & vật tư"
+      "Industrial equipment"
     ],
     [
       "dp_copy_archive_dp_product_5",
-      "công nghiệp."
+      "& supplies."
     ],
     [
       "dp_copy_archive_dp_product_6",
-      "Danh mục cung cấp của DP: bơm, van, đường ống, đo lường, UPS, ắc quy, động cơ, máy phát điện, khí nén và PCCC. Liên hệ để tư vấn model và cấu hình theo nhu cầu."
+      "DP supplies pumps, valves, piping, instrumentation, UPS systems, batteries, engines, generators, compressed air equipment and fire protection equipment. Contact us for advice on models and configurations."
     ],
     [
       "dp_copy_archive_dp_product_7",
-      "Tất cả thiết bị"
+      "All equipment"
     ],
     [
       "dp_copy_archive_dp_product_8",
-      "Tìm kiếm"
+      "Search"
     ],
     [
       "dp_copy_archive_dp_product_9",
-      "Khám phá danh mục & yêu cầu tư vấn ↘"
+      "Explore the catalogue & request advice ↘"
     ],
     [
       "dp_placeholder_archive_dp_product_php_9",
-      "Tìm tên thiết bị…"
+      "Search equipment…"
     ]
   ],
   "single-dp_product.php": [
     [
       "dp_copy_single_dp_product_1",
-      "Trang chủ"
+      "Home"
     ],
     [
       "dp_copy_single_dp_product_2",
-      "Sản phẩm"
+      "Products"
     ],
     [
       "dp_copy_single_dp_product_3",
-      "Hình ảnh danh mục từ hồ sơ công ty DP. Cấu hình cung cấp được xác nhận theo yêu cầu."
+      "Catalogue images from the DP company profile. Supply configurations are confirmed on request."
     ],
     [
       "dp_copy_single_dp_product_4",
-      "DP Technical Solution / Danh mục cung cấp"
+      "DP Technical Solution / Product catalogue"
     ],
     [
       "dp_copy_single_dp_product_5",
-      "Yêu cầu báo giá ↗"
+      "Request a quote ↗"
     ],
     [
       "dp_copy_single_dp_product_6",
-      "Tài liệu PDF ↓"
+      "PDF documentation ↓"
     ],
     [
       "dp_copy_single_dp_product_7",
-      "Tìm hiểu sản phẩm"
+      "Product overview"
     ],
     [
       "dp_copy_single_dp_product_8",
-      "Thông tin theo hồ sơ công ty. Model, thông số và khả năng cung cấp cần xác nhận khi tư vấn."
+      "Information from the company profile. Models, specifications and availability must be confirmed during consultation."
     ],
     [
       "dp_copy_single_dp_product_9",
-      "Liên hệ báo giá"
+      "Request a quote"
     ],
     [
       "dp_copy_single_dp_product_10",
-      "Gửi yêu cầu kỹ thuật và số lượng để DP tư vấn lựa chọn phù hợp."
+      "Send your technical requirements and quantities so DP can recommend suitable options."
     ],
     [
       "dp_copy_single_dp_product_11",
-      "Gửi email yêu cầu ↗"
+      "Contact DP ↗"
     ],
     [
       "dp_copy_single_dp_product_12",
-      "Nút trên mở ứng dụng email với tên sản phẩm được điền sẵn. Bạn kiểm tra nội dung trước khi gửi."
+      "Contact DP to discuss your requirements."
     ]
   ],
   "template-products.php": []

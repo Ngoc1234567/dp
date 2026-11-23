@@ -8,7 +8,7 @@ $used_anchors = [];
 ?>
 <main id="main" class="dp-home"><h1 class="screen-reader-text"><?php echo esc_html(get_the_title($home_id)); ?></h1>
 <?php foreach ($sections as $section_id) require get_template_directory().'/inc/home-section.php'; ?>
-<?php if (!$sections && current_user_can('edit_post', $home_id)): ?><div class="wrap section"><p>Chọn các khối trong Trang → Trang chủ → DP — Thiết kế trang chủ để hiển thị nội dung.</p><a class="btn" href="<?php echo esc_url(get_edit_post_link($home_id)); ?>">Chỉnh sửa trang chủ</a></div><?php endif; ?>
+<?php if (!$sections && current_user_can('edit_post', $home_id)): ?><div class="wrap section"><p>Select sections in the homepage editor to display content.</p><a class="btn" href="<?php echo esc_url(get_edit_post_link($home_id)); ?>">Edit homepage</a></div><?php endif; ?>
 </main>
 <?php if (dp_hv($home_id, 'dp_home_dock', 1)):
     $phone = preg_replace('/[^0-9+]/', '', dp_hv($home_id, 'dp_home_phone'));
@@ -18,15 +18,15 @@ $used_anchors = [];
     $contact = dp_hv($home_id, 'dp_home_contact_link');
     $contact_url = is_array($contact) ? esc_url($contact['url'] ?? '') : '';
     $contact_label = is_array($contact) ? ($contact['title'] ?? '') : '';
-    $contact_label = $contact_label ?: 'Liên hệ';
+    $contact_label = $contact_label ?: 'Contact';
     if ($phone || $contact_url || $zalo_url): ?>
-<nav class="dp-floating-contact" aria-label="Liên hệ nhanh">
+<nav class="dp-floating-contact" aria-label="Quick contact">
     <?php if ($contact_url): ?>
     <a class="dp-floating-button dp-floating-message" href="<?php echo $contact_url; ?>" aria-label="<?php echo esc_attr($contact_label); ?>" title="<?php echo esc_attr($contact_label); ?>"<?php if (($contact['target'] ?? '') === '_blank') echo ' target="_blank" rel="noopener noreferrer"'; ?>>
         <span class="dp-floating-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg></span>
     </a>
     <?php endif; if ($zalo_url): ?>
-    <a class="dp-floating-button dp-floating-zalo" href="<?php echo esc_url($zalo_url); ?>" aria-label="Chat qua Zalo" title="Chat qua Zalo" target="_blank" rel="noopener noreferrer">
+    <a class="dp-floating-button dp-floating-zalo" href="<?php echo esc_url($zalo_url); ?>" aria-label="Chat on Zalo" title="Chat on Zalo" target="_blank" rel="noopener noreferrer">
         <span class="dp-floating-icon" aria-hidden="true"><span class="dp-floating-zalo-text">Zalo</span></span>
     </a>
     <?php endif; if ($phone): ?>

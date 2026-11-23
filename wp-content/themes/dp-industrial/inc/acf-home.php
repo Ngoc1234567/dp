@@ -96,7 +96,7 @@ function dp_home_link($id, $field, $class = 'btn') {
     $link = dp_hv($id, $field);
     if (!is_array($link) || empty($link['url'])) return;
     $blank = ($link['target'] ?? '') === '_blank';
-    printf('<a class="%s" href="%s"%s>%s</a>', esc_attr($class), esc_url($link['url']), $blank ? ' target="_blank" rel="noopener noreferrer"' : '', esc_html($link['title'] ?: 'Xem thêm'));
+    printf('<a class="%s" href="%s"%s>%s</a>', esc_attr($class), esc_url($link['url']), $blank ? ' target="_blank" rel="noopener noreferrer"' : '', esc_html($link['title'] ?: 'Learn more'));
 }
 function dp_home_image($id, $field, $class = '', $eager = false) {
     $image = absint(dp_hv($id, $field));

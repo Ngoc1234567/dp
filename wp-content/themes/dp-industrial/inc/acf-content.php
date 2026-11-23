@@ -69,8 +69,8 @@ add_action('acf/init',function(){
 
 add_action('acf/init',function(){
     $fields=[];
-    foreach(['address'=>'Địa chỉ','phone'=>'Hotline','email'=>'Email','service'=>'Tư vấn kỹ thuật'] as $key=>$label) $fields[]=dp_home_field('dp_card_'.$key.'_label','Nhãn thẻ '.$label,'text',['default_value'=>$label]);
-    $fields[]=dp_home_field('dp_card_service_text','Nội dung thẻ tư vấn','text',['default_value'=>'Thiết bị · Phụ tùng · Dịch vụ']);
+    foreach(['address'=>'Address','phone'=>'Hotline','email'=>'Email','service'=>'Technical advice'] as $key=>$label) $fields[]=dp_home_field('dp_card_'.$key.'_label','Nhãn thẻ '.$label,'text',['default_value'=>$label]);
+    $fields[]=dp_home_field('dp_card_service_text','Nội dung thẻ tư vấn','text',['default_value'=>'Equipment · Spare parts · Services']);
     acf_add_local_field_group(['key'=>'group_dp_contact_cards','title'=>'DP — Thẻ thông tin liên hệ','fields'=>$fields,'location'=>[[['param'=>'page_template','operator'=>'==','value'=>'template-contact.php']]]]);
 });
 

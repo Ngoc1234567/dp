@@ -1,4 +1,4 @@
 <?php
-/* Template Name: DP — Giới thiệu */
+/* Template Name: DP — About us */
 defined('ABSPATH') || exit;
 dp_render_business_page('about');
