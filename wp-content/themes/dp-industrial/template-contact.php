@@ -18,7 +18,7 @@ $map_query = rawurlencode($headquarters_address);
             <p class="dp-contact-intro"><?php echo esc_html(dp_content('dp_copy_template_contact_4', get_queried_object_id())); ?></p>
             <div class="dp-contact-cards">
                 <?php foreach ([[dp_hv(get_queried_object_id(),'dp_card_address_label','Address'), $address, '', '⌖'], [dp_hv(get_queried_object_id(),'dp_card_phone_label','Hotline'), $phone, $phone ? 'tel:'.preg_replace('/[^0-9+]/','',$phone) : '', '☎'], [dp_hv(get_queried_object_id(),'dp_card_email_label','Email'), $email, $email ? 'mailto:'.$email : '', '✉'], [dp_hv(get_queried_object_id(),'dp_card_service_label','Technical advice'), dp_hv(get_queried_object_id(),'dp_card_service_text','Equipment · Spare parts · Services'), dp_page_url('dich-vu'), '⚙']] as [$label,$value,$url,$icon]): ?>
-                <article class="dp-contact-card"><span class="dp-contact-icon" aria-hidden="true"><?php echo esc_html($icon); ?></span><h2><?php echo esc_html($label); ?></h2><?php if ($url): ?><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($value); ?></a><?php else: ?><p><?php echo nl2br(esc_html($value ?: 'Coming soon')); ?></p><?php endif; ?></article>
+                <article class="dp-contact-card"><span class="dp-contact-icon" aria-hidden="true"><?php echo esc_html($icon); ?></span><h2><?php echo esc_html($label); ?></h2><?php if (str_starts_with($url, 'tel:')): ?><?php echo dp_phone_links($phone); ?><?php elseif ($url): ?><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($value); ?></a><?php else: ?><p><?php echo nl2br(esc_html($value ?: 'Coming soon')); ?></p><?php endif; ?></article>
                 <?php endforeach; ?>
             </div>
         </section>

@@ -22,7 +22,7 @@ add_action('admin_init', function () {
 add_action('acf/init', function () {
     $f='dp_home_field';
     $fields=[];
-    foreach (['company'=>'Tên thương hiệu','phone'=>'Hotline','email'=>'Email nhận yêu cầu','address'=>'Địa chỉ trụ sở'] as $name=>$label) $fields[]=$f('dp_shared_'.$name,$label,$name==='email'?'email':'text',['default_value'=>get_theme_mod('dp_'.$name)]);
+    foreach (['company'=>'Tên thương hiệu','phone'=>'Hotline','email'=>'Email nhận yêu cầu','address'=>'Địa chỉ trụ sở'] as $name=>$label) $fields[]=$f('dp_shared_'.$name,$label,$name==='email'?'email':($name==='phone'?'textarea':'text'),array_merge(['default_value'=>get_theme_mod('dp_'.$name)], $name==='phone'?['rows'=>3,'new_lines'=>'','instructions'=>'Nhập mỗi số hotline trên một dòng.']:[]));
     $fields[]=$f('dp_shared_logo','Logo','image',['return_format'=>'id']);
     $fields[]=$f('dp_shared_tagline','Khẩu hiệu dưới logo','text',['default_value'=>'TECHNICAL SOLUTIONS – SUSTAINABLE VALUE']);
     foreach (json_decode(file_get_contents(__DIR__.'/content-defaults.json'),true) as $file=>$items) {

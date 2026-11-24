@@ -29,7 +29,7 @@ $footer_terms = get_terms(['taxonomy' => 'dp_category', 'hide_empty' => true, 'n
             </nav>
             <div class="dp-footer-column dp-footer-contact">
                 <h3><?php echo esc_html(dp_content('dp_copy_footer_7', dp_settings_id())); ?></h3>
-                <?php if ($footer_phone): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_8', dp_settings_id())); ?></span><a class="dp-footer-phone" href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $footer_phone)); ?>"><?php echo esc_html($footer_phone); ?></a></div><?php endif; ?>
+                <?php if ($footer_phone): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_8', dp_settings_id())); ?></span><?php echo dp_phone_links($footer_phone, 'dp-footer-phone'); ?></div><?php endif; ?>
                 <?php if ($footer_email): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_9', dp_settings_id())); ?></span><a href="mailto:<?php echo esc_attr($footer_email); ?>"><?php echo esc_html($footer_email); ?></a></div><?php endif; ?>
                 <?php if ($footer_address): ?><div><span class="dp-footer-label"><?php echo esc_html(dp_content('dp_copy_footer_10', dp_settings_id())); ?></span><address><?php echo nl2br(esc_html($footer_address)); ?></address></div><?php endif; ?>
                 <a class="dp-footer-all" href="<?php echo esc_url(dp_page_url('lien-he')); ?>"><?php echo esc_html(dp_content('dp_copy_footer_11', dp_settings_id())); ?><span aria-hidden="true">↗</span></a>

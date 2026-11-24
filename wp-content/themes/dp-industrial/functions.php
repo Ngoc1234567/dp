@@ -13,14 +13,24 @@ function dp_card() { ?>
 add_action('customize_register', function ($c) {
  $c->add_section('dp_brand', ['title'=>'DP • Branding & banner']);
  foreach (['company'=>['Company name','DP TECHNICAL SOLUTION'], 'headline'=>['Banner heading','Power for every project.'], 'intro'=>['Banner description','Explore construction, lifting and power equipment solutions for your operational needs.'], 'phone'=>['Hotline',''], 'email'=>['Contact email',''], 'address'=>['Address','']] as $key=>$field) {
-  $c->add_setting('dp_'.$key, ['default'=>$field[1], 'sanitize_callback'=>$key==='email'?'sanitize_email':'sanitize_text_field']);
-  $c->add_control('dp_'.$key,['label'=>$field[0],'section'=>'dp_brand','type'=>'text']);
+  $c->add_setting('dp_'.$key, ['default'=>$field[1], 'sanitize_callback'=>$key==='email'?'sanitize_email':($key==='phone'?'sanitize_textarea_field':'sanitize_text_field')]);
+  $c->add_control('dp_'.$key,['label'=>$field[0],'section'=>'dp_brand','type'=>$key==='phone'?'textarea':'text','description'=>$key==='phone'?'Enter one hotline number per line.':'']);
  }
  $c->add_setting('dp_banner',['sanitize_callback'=>'absint']);
  $c->add_control(new WP_Customize_Media_Control($c,'dp_banner',['label'=>'Banner image','section'=>'dp_brand','mime_type'=>'image']));
 });
+function dp_phone_links($value, $class = '') {
+ $links = [];
+ foreach (preg_split('/\R/u', (string) $value) as $phone) {
+  $phone = trim($phone);
+  $number = preg_replace('/[^0-9+]/', '', $phone);
+  if ($phone === '' || !preg_match('/[0-9]/', $number)) continue;
+  $links[] = '<a'.($class ? ' class="'.esc_attr($class).'"' : '').' href="'.esc_url('tel:'.$number).'">'.esc_html($phone).'</a>';
+ }
+ return implode('<br>', $links);
+}
 function dp_contact() { ?>
-<section class="contact-panel" id="lien-he"><span class="eyebrow">Connect with us</span><h3>Discuss your requirements with DP</h3><?php $phone=get_theme_mod('dp_phone'); $email=get_theme_mod('dp_email'); if ($phone) { ?><p>Hotline: <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',$phone)); ?>"><?php echo esc_html($phone); ?></a></p><?php } if ($email) { ?><p>Email: <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p><?php } if (!$phone && !$email) { ?><p>Contact information is being updated. The enquiry form will be available soon.</p><?php } ?><p><?php echo esc_html(get_theme_mod('dp_address')); ?></p></section>
+<section class="contact-panel" id="lien-he"><span class="eyebrow">Connect with us</span><h3>Discuss your requirements with DP</h3><?php $phone=get_theme_mod('dp_phone'); $email=get_theme_mod('dp_email'); if ($phone) { ?><p>Hotline: <?php echo dp_phone_links($phone); ?></p><?php } if ($email) { ?><p>Email: <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p><?php } if (!$phone && !$email) { ?><p>Contact information is being updated. The enquiry form will be available soon.</p><?php } ?><p><?php echo esc_html(get_theme_mod('dp_address')); ?></p></section>
 <?php }
 
 function dp_brand() { ?><img class="dp-logo" src="<?php echo esc_url((wp_get_attachment_image_url((int) dp_hv(dp_settings_id(), 'dp_shared_logo'), 'full') ?: get_theme_file_uri('assets/profile/logo.png'))); ?>" alt="Logo DP"><span class="brand-copy"><strong><?php echo esc_html(get_theme_mod('dp_company','DP TECHNICAL SOLUTION')); ?></strong><small><?php echo esc_html(dp_hv(dp_settings_id(), 'dp_shared_tagline', 'TECHNICAL SOLUTIONS – SUSTAINABLE VALUE')); ?></small></span><?php }
